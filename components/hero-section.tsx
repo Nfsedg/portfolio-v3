@@ -26,8 +26,7 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 font-[family-name:var(--font-work-sans)]">Edgar Osvaldo Pech García</h1>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-[family-name:var(--font-work-sans)]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-[family-name:var(--font-work-sans)]">
             Full-Stack Engineer
           </h1>
           <p className="text-xl sm:text-2xl text-slate-300 mb-8 leading-relaxed">
