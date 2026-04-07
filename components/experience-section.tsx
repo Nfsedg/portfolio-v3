@@ -11,7 +11,7 @@ export function ExperienceSection() {
       period: "2024 - Present",
       description:
         "Mantaining legacy project with old technologies, and do migration to new frameworks to get better performance on client side, splitting the backend and frontend code. Review code and collaborating with differents teams. Propouse new features or necesities from the UX/UI views to the actual implementation. Create new projects proposing the better front end stack and best infraestructure requirements to reduce costs according of the project type. Verify bugs on DB, backend or frontend code if was necessary.",
-      technologies: ["React", "Vite", "AWS", "Docker", "SQL Server", "Webpack", "Phoenix Framework"],
+      technologies: ["NextJS", "AWS", "Docker", "SQL Server", "Webpack", "Phoenix Framework", "TypeScript", "Langchain"],
     },
     {
       title: "Front-end Developer",
@@ -53,9 +53,8 @@ export function ExperienceSection() {
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className={`relative flex items-center mb-12 ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+                className={`relative flex items-center mb-12 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
               >
                 {/* Timeline dot */}
                 <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-3 h-3 bg-accent rounded-full border-2 border-background z-10"></div>

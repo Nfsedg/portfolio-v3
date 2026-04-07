@@ -8,8 +8,8 @@ export function TechnologiesSection() {
         { name: "React", level: "Expert" },
         { name: "Next.js", level: "Advanced" },
         { name: "TypeScript", level: "Advanced" },
-        { name: "Sass", level: "Advanced" },
         { name: "Tailwind CSS", level: "Advanced" },
+        { name: "Vue.js", level: "Intermediate" },
       ],
     },
     {
@@ -39,20 +39,12 @@ export function TechnologiesSection() {
         { name: "AWS", level: "Intermediate" },
         { name: "Azure", level: "Intermediate" },
         { name: "Git", level: "Expert" },
-        { name: "CI/CD", level: "Intermediate" },
+        { name: "Vercel", level: "Expert" },
       ],
     },
   ]
 
-  const getSkillIndicator = (level: string) => {
-    const indicators = {
-      Expert: { dots: 4, color: "bg-accent" },
-      Advanced: { dots: 3, color: "bg-accent" },
-      Intermediate: { dots: 2, color: "bg-accent" },
-      Beginner: { dots: 1, color: "bg-accent" },
-    }
-    return indicators[level as keyof typeof indicators] || indicators["Beginner"]
-  }
+  // Removed getSkillIndicator since we won't show dots
 
   return (
     <section id="technologies" className="py-20 bg-background">
@@ -77,22 +69,13 @@ export function TechnologiesSection() {
               <CardContent>
                 <div className="space-y-4">
                   {category.technologies.map((tech) => {
-                    const skillIndicator = getSkillIndicator(tech.level)
                     return (
                       <div key={tech.name} className="flex justify-between items-center">
                         <span className="text-foreground font-medium">{tech.name}</span>
                         <div className="flex items-center gap-3">
-                          <span className="text-sm text-muted-foreground min-w-[80px] text-right">{tech.level}</span>
-                          <div className="flex gap-1">
-                            {Array.from({ length: 4 }, (_, i) => (
-                              <div
-                                key={i}
-                                className={`w-2 h-2 rounded-full ${
-                                  i < skillIndicator.dots ? skillIndicator.color : "bg-muted"
-                                }`}
-                              />
-                            ))}
-                          </div>
+                          <span className="text-sm text-muted-foreground min-w-[80px] text-right">
+                            {tech.level}
+                          </span>
                         </div>
                       </div>
                     )

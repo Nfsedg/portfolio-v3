@@ -6,7 +6,7 @@ import { ExternalLink, Github } from "lucide-react"
 export function WorkSection() {
   const projects = [
     {
-      title: "Job Board",
+      title: "Job Board (UPQROO University)",
       description: "Full-stack Job board solution for my university to connect talents with jobs",
       image: "/upqroo-bolsa.png",
       technologies: ["NextJS", "Prisma", "MySQL", "Google OAuth", "Apache2"],
@@ -14,7 +14,7 @@ export function WorkSection() {
       githubUrl: "https://github.com/upqroo-organization/upqroo-bolsa-empleo",
     },
     {
-      title: "Insurance Quotation App",
+      title: "Insurance Quotation App (Clupp)",
       description: "Application for one of my job to quote insurance subscription.",
       image: "/clupp.png",
       technologies: ["ReactJS", "Firebase", "Stripe", "Mobile Design"],

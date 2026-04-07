@@ -43,7 +43,7 @@ export function Footer() {
 
           <div className="border-t border-primary-foreground/20 pt-8">
             <p className="text-primary-foreground/60 text-sm">
-              Full-Stack Engineer Portfolio. Built with Next.js and Tailwind CSS.
+              Built with Next.js and Tailwind CSS.
             </p>
           </div>
         </div>

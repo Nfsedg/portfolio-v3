@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 
 export function AboutSection() {
   const interests = ["Clean Architecture", "Performance Optimization", "User Experience", "Continuous Learning", "Mobile First design", "Learn new technologies"]
-  const languages = ["English (Conversational)", "Spanish (Basic)"]
+  const languages = ["English (Conversational)", "Spanish (Native)"]
 
   return (
     <section id="about" className="py-20 bg-muted/30">
