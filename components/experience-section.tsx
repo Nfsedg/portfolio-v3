@@ -5,31 +5,40 @@ import { Calendar, MapPin } from "lucide-react"
 export function ExperienceSection() {
   const experiences = [
     {
-      title: "Front-end Developer",
-      company: "Exploration & Discovery Technologies",
+      title: "Front-End & AI Integration Engineer",
+      company: "Exploration & Discovery Technologies (Vemio)",
       location: "Remote, México",
       period: "2024 - Present",
       description:
-        "Mantaining legacy project with old technologies, and do migration to new frameworks to get better performance on client side, splitting the backend and frontend code. Review code and collaborating with differents teams. Propouse new features or necesities from the UX/UI views to the actual implementation. Create new projects proposing the better front end stack and best infraestructure requirements to reduce costs according of the project type. Verify bugs on DB, backend or frontend code if was necessary.",
-      technologies: ["NextJS", "AWS", "Docker", "SQL Server", "Webpack", "Phoenix Framework", "TypeScript", "Langchain"],
+        "Partnered with Product Owners to design and architect Next.js web applications and mobile apps (React Native) from scratch. Collaborated with key stakeholders to align business requirements with clean, highly interactive user interfaces. Integrated AI agents with LangChain and Generative UI to build conversational copilot flows that guide users across data dashboards. Designed and implemented predictive analytics, AI-guided promotion modules, and interactive key performance indicators (KPI) charts for retail and supply chain analytics. Maintained code quality through documentation, custom coding standards, and rigorous code reviews.",
+      technologies: ["Next.js", "TypeScript", "Supabase", "React Native", "Python", "LangChain", "Generative UI"],
     },
     {
-      title: "Front-end Developer",
+      title: "Front-End Developer",
+      company: "Exploration & Discovery Technologies (Grupo Femsa-Coca Cola)",
+      location: "Remote, México",
+      period: "2024",
+      description:
+        "Developed web dashboards for tracking metrics, incident reports, and real-time delivery logs utilized across Latin America. Diagnosed and resolved complex frontend bugs in React class and function components, while reviewing Elixir/Phoenix backend services. Migrated the legacy repository from Webpack to Vite, updating key dependencies and refactoring security and api client layers. Propositioned and delivered core web features, successfully rebranding the platform's user interface. Designed and deployed cloud-based MVPs leveraging AWS services (Cognito, IoT Core, S3, EC2, Lambda) and earned the AWS Certified Cloud Practitioner credential.",
+      technologies: ["React", "Phoenix (Elixir)", "Vite", "Webpack", "AWS", "SQL Server"],
+    },
+    {
+      title: "Front-End Developer",
       company: "Clupp",
       location: "Remote, México",
       period: "2022 - 2023",
       description:
-        "Developed and maintained multiple client projects using modern web technologies. Create and implement new features for existing projects and new web apps, highly focused on mobile experience, and opened to do quick changes according of users necesities. Improve web performance and Firebase request calls to reduce time and cost",
-      technologies: ["ReactJS", "Firebase", "MaterialUI", "Stripe", "NodeJS"],
+        "Engineered new application modules for an on-demand insurance startup serving automobiles, motorcycles, and smartphones. Built custom maps using the Google Maps API to track and manage physical outdoor marketing campaigns. Optimized Firebase database queries and client-side caching to reduce load times and Firestore consumption costs by up to 80%. Developed a high-converting responsive insurance quotation flow integrated with Stripe payments and user attribution tracking. Created a document ingestion pipeline that utilized third-party PDF extraction APIs and custom regular expressions (Regex) to automate customer onboarding forms.",
+      technologies: ["React", "Material-UI", "Firebase", "Express.js", "Stripe", "GCP"],
     },
     {
-      title: "Intern Full-Stack",
+      title: "Intern Full-Stack Developer",
       company: "Universidad Politécnica de Quintana Roo",
       location: "Cancún, México",
-      period: "2024 - 2024",
+      period: "2024",
       description:
-        "Build a complete web application for job searching focused for students and graduates of university. I propuse all the stack technologies, adapted for the server capabilities and which type of DB are more used on the server.",
-      technologies: ["NextJS", "TypeScript", "Prisma", "Tailwind", "Apache2"],
+        "Designed and implemented the university's official job board platform to connect students and alumni with employers. Selected the modern web stack to match institutional infrastructure limitations, configured the Apache2 production server, and managed database integrations.",
+      technologies: ["Next.js", "TypeScript", "Prisma", "MySQL", "Apache2"],
     },
   ]
 
