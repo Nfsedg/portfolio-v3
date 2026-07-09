@@ -1,79 +1,88 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* 
+================================================================================
+MINIMALIST DESIGN SYSTEM SPECIFICATIONS
+================================================================================
+
+1. COLOR PALETTE
+   - Background:      #09090B (Ultra-dark dark mode base)
+   - Surface:         #111113 (For cards, navbar, and containers)
+   - Borders:         #27272A (Subtle separator lines)
+   - Primary Text:    #FAFAFA (High-contrast text)
+   - Secondary Text:  #A1A1AA (Muted details text)
+   - Accent Color:    #06B6D4 (Used sparingly for highlights, hover, active)
+   
+2. TYPOGRAPHY (Geist & Geist Mono)
+   - Display:         72px (4.5rem)
+   - Hero:            56px (3.5rem)
+   - H1:              40px (2.5rem)
+   - H2:              32px (2rem)
+   - H3:              24px (1.5rem)
+   - Body:            18px (1.125rem)
+   - Small:           16px (1rem)
+   - Caption:         14px (0.875rem)
+
+3. SPACING RULES
+   - Multiples of 4px strictly (e.g. 4px, 8px, 12px, 16px, 20px, 24px, 32px, 40px, 48px, 64px, 80px, 96px, 112px, 128px)
+   
+4. BORDER RADIUS
+   - Standard components / buttons: 12px (0.75rem)
+   - Large containers / cards:      20px (1.25rem)
+
+5. SHADOWS
+   - None (box-shadow is disabled/unset globally for that flat minimalist look)
+
+6. GRID MAX WIDTH
+   - Grid layout:     1280px
+   - Main content:    1152px
+
+7. ACCESSIBILITY (WCAG AA Minimum)
+   - High contrast text colors for AAA/AA standards.
+   - Complete keyboard focus outline style.
+   - Reduced motion configuration query.
+================================================================================
+*/
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match Japanese-inspired professional design */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.205 0 0);
-  --card: oklch(0.985 0 0);
-  --card-foreground: oklch(0.345 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.205 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.556 0 0);
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.345 0 0);
-  --accent: oklch(0.646 0.222 264.376);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.696 0.17 25.331);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.985 0 0);
-  --ring: oklch(0.646 0.111 264.376 / 0.5);
-  --chart-1: oklch(0.627 0.265 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.645 0.246 303.9);
-  --chart-5: oklch(0.696 0.17 25.331);
-  --radius: 0.5rem;
-  --sidebar: oklch(0.97 0 0);
-  --sidebar-foreground: oklch(0.205 0 0);
-  --sidebar-primary: oklch(1 0 0);
-  --sidebar-primary-foreground: oklch(0.205 0 0);
-  --sidebar-accent: oklch(0.646 0.222 264.376);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.646 0.111 264.376 / 0.5);
-}
-
-.dark {
-  /* Updated dark mode tokens for professional Japanese aesthetic */
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.556 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.646 0.222 264.376);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.696 0.17 25.331);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.646 0.111 264.376 / 0.5);
-  --chart-1: oklch(0.627 0.265 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.645 0.246 303.9);
-  --chart-5: oklch(0.696 0.17 25.331);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.627 0.265 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.646 0.111 264.376 / 0.5);
+  /* Design Tokens mapped to standard Tailwind variables */
+  --background: #09090B;
+  --foreground: #FAFAFA;
+  
+  --card: #111113;
+  --card-foreground: #FAFAFA;
+  
+  --popover: #111113;
+  --popover-foreground: #FAFAFA;
+  
+  --primary: #FAFAFA;
+  --primary-foreground: #09090B;
+  
+  --secondary: #A1A1AA;
+  --secondary-foreground: #09090B;
+  
+  --muted: #111113;
+  --muted-foreground: #A1A1AA;
+  
+  --accent: #06B6D4;
+  --accent-foreground: #09090B;
+  
+  --destructive: #EF4444;
+  --destructive-foreground: #FAFAFA;
+  
+  --border: #27272A;
+  --input: #27272A;
+  --ring: #06B6D4;
+  
+  /* Border Radius Specs */
+  --radius: 12px;
+  
+  /* Charts & Others */
+  --chart-1: #06B6D4;
+  --chart-2: #6366F1;
 }
 
 @theme inline {
@@ -91,40 +100,70 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Radius scales mapping */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Font scales mapping */
+  --font-size-display: 4.5rem;   /* 72px */
+  --font-size-hero: 3.5rem;      /* 56px */
+  --font-size-h1: 2.5rem;        /* 40px */
+  --font-size-h2: 2rem;          /* 32px */
+  --font-size-h3: 1.5rem;        /* 24px */
+  --font-size-body: 1.125rem;    /* 18px */
+  --font-size-small: 1rem;       /* 16px */
+  --font-size-caption: 0.875rem; /* 14px */
+  
+  /* Font Family configuration using Geist loaded from packages */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased selection:bg-accent/20 selection:text-accent font-sans;
+    font-size: 1.125rem; /* Default Body Size (18px) */
+    line-height: 1.625;
   }
 
-  /* Added smooth scrolling for better UX */
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Clear visible focus indicators for WCAG AAA/AA navigation */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--accent) !important;
+    outline-offset: 4px !important;
+    border-radius: inherit !important;
+  }
+
+  /* Disable shadows globally to ensure a clean minimalist flat look */
+  .shadow-sm, .shadow, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl, .shadow-inner {
+    box-shadow: none !important;
+  }
+}
+
+/* Accessibility: prefers-reduced-motion configuration */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -1,9 +1,11 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+"use client"
+
+import { Badge } from "@/components/ui/badge"
 
 export function TechnologiesSection() {
   const techCategories = [
     {
-      title: "Frontend",
+      title: "Frontend Stack",
       technologies: [
         { name: "React", level: "Expert" },
         { name: "Next.js", level: "Advanced" },
@@ -14,7 +16,7 @@ export function TechnologiesSection() {
       ],
     },
     {
-      title: "Backend & Services",
+      title: "Backend & Storage",
       technologies: [
         { name: "Python", level: "Intermediate" },
         { name: "Phoenix (Elixir)", level: "Intermediate" },
@@ -24,7 +26,7 @@ export function TechnologiesSection() {
       ],
     },
     {
-      title: "Cloud & Infrastructure",
+      title: "Cloud & Platform",
       technologies: [
         { name: "AWS", level: "Advanced" },
         { name: "Google Cloud (GCP)", level: "Intermediate" },
@@ -33,56 +35,64 @@ export function TechnologiesSection() {
       ],
     },
     {
-      title: "AI & Integrations",
+      title: "AI & APIs",
       technologies: [
         { name: "LangChain", level: "Advanced" },
         { name: "Generative UI", level: "Advanced" },
-        { name: "Stripe", level: "Advanced" },
-        { name: "REST & GraphQL APIs", level: "Advanced" },
+        { name: "Stripe Payments", level: "Advanced" },
+        { name: "REST & GraphQL", level: "Advanced" },
       ],
     },
   ]
 
-  // Removed getSkillIndicator since we won't show dots
-
   return (
-    <section id="technologies" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4 font-[family-name:var(--font-work-sans)]">
-            Technologies & Skills
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive overview of my technical expertise and proficiency levels
-          </p>
-        </div>
+    <section id="technologies" className="py-24 bg-background border-t border-border">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 w-full">
+        <div className="max-w-[1152px] mx-auto">
+          {/* Header */}
+          <div className="text-left mb-16">
+            <h2 className="text-h2 font-bold text-foreground tracking-tight mb-4">
+              Technologies & Skills
+            </h2>
+            <p className="text-body text-secondary-text max-w-2xl">
+              An inventory of core technologies, tools, and platforms I employ to build high-performance products.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {techCategories.map((category, index) => (
-            <Card key={index} className="hover:shadow-md transition-shadow duration-300">
-              <CardHeader>
-                <CardTitle className="text-xl text-accent font-[family-name:var(--font-work-sans)]">
-                  {category.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {category.technologies.map((tech) => {
-                    return (
-                      <div key={tech.name} className="flex justify-between items-center">
-                        <span className="text-foreground font-medium">{tech.name}</span>
-                        <div className="flex items-center gap-3">
-                          <span className="text-sm text-muted-foreground min-w-[80px] text-right">
-                            {tech.level}
-                          </span>
-                        </div>
+          {/* Categories Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {techCategories.map((category, index) => (
+              <div 
+                key={index} 
+                className="bg-card border border-border rounded-[20px] p-6 sm:p-8 flex flex-col justify-between shadow-none"
+              >
+                <div>
+                  <h3 className="text-h3 font-bold text-foreground tracking-tight mb-6">
+                    {category.title}
+                  </h3>
+                  
+                  <div className="divide-y divide-border/40">
+                    {category.technologies.map((tech) => (
+                      <div 
+                        key={tech.name} 
+                        className="flex justify-between items-center py-3 first:pt-0 last:pb-0"
+                      >
+                        <span className="text-small font-medium text-foreground">
+                          {tech.name}
+                        </span>
+                        <Badge 
+                          variant="outline" 
+                          className="bg-background text-secondary-text border-border/80 font-mono text-caption rounded-[12px] px-2.5 py-0.5"
+                        >
+                          {tech.level}
+                        </Badge>
                       </div>
-                    )
-                  })}
+                    ))}
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

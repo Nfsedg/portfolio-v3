@@ -1,6 +1,7 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+"use client"
+
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github } from "lucide-react"
 
 export function WorkSection() {
@@ -13,9 +14,9 @@ export function WorkSection() {
       liveUrl: "https://www.vemio.com.mx",
       liveUrlLabel: "Landing Page",
       secondaryUrl: "https://bi-comercial.vemio.com.mx/login",
-      secondaryUrlLabel: "App Login (Restricted)",
+      secondaryUrlLabel: "App Login",
       tertiaryUrl: "https://bi-comercial-vemio.vercel.app",
-      tertiaryUrlLabel: "V1 Mockup (Accessible)",
+      tertiaryUrlLabel: "V1 Mockup",
     },
     {
       title: "Logistics & Delivery Dashboard (Grupo Femsa-Coca Cola)",
@@ -23,7 +24,7 @@ export function WorkSection() {
       image: "/ruta-kof.png",
       technologies: ["React", "Phoenix (Elixir)", "Vite", "Webpack", "AWS", "SQL Server"],
       liveUrl: "https://noc.kof.com",
-      liveUrlLabel: "Login Page (Restricted)",
+      liveUrlLabel: "Login Page",
     },
     {
       title: "Job Board Platform (UPQROO University)",
@@ -62,78 +63,143 @@ export function WorkSection() {
   ]
 
   return (
-    <section id="work" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4 font-[family-name:var(--font-work-sans)]">
-            Featured Work
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A selection of projects that showcase my expertise in full-stack development and AI integration
-          </p>
-        </div>
+    <section id="work" className="py-24 bg-background">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 w-full">
+        <div className="max-w-[1152px] mx-auto">
+          {/* Header */}
+          <div className="text-left mb-16">
+            <h2 className="text-h2 font-bold text-foreground tracking-tight mb-4">
+              Featured Work
+            </h2>
+            <p className="text-body text-secondary-text max-w-2xl">
+              A curated selection of software projects showcasing full-stack development, AI integrations, and cloud architectures.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/50 flex flex-col justify-between">
-              <div>
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <article
+                key={index}
+                className="bg-card border border-border rounded-[20px] overflow-hidden flex flex-col justify-between shadow-none transition-colors duration-150"
+              >
+                <div>
+                  {/* Project Image Container */}
+                  <div className="relative aspect-video w-full overflow-hidden border-b border-border bg-background">
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={`Interface screenshot of ${project.title}`}
+                      className="w-full h-full object-cover transition-transform duration-200 hover:scale-[1.01]"
+                      loading="lazy"
+                    />
+                  </div>
+                  
+                  {/* Text Details */}
+                  <div className="p-6">
+                    <h3 className="text-h3 font-bold text-foreground tracking-tight mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-small text-secondary-text leading-relaxed mb-6">
+                      {project.description}
+                    </p>
+                    
+                    {/* Tech Badges */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="outline"
+                          className="bg-background text-secondary-text text-caption border-border rounded-[12px] px-3 py-1 font-medium font-mono"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-xl font-[family-name:var(--font-work-sans)]">{project.title}</CardTitle>
-                  <CardDescription className="text-muted-foreground">{project.description}</CardDescription>
-                </CardHeader>
-              </div>
-              <CardContent>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-3">
+
+                {/* Actions Footer */}
+                <div className="p-6 pt-0 flex flex-wrap gap-3">
                   {project.liveUrl && (
-                    <Button asChild size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4" />
+                    <Button
+                      asChild
+                      size="sm"
+                      variant="outline"
+                      className="border-border hover:border-foreground hover:text-foreground text-caption font-medium transition-colors bg-transparent text-secondary-text rounded-[12px] h-9 px-4"
+                    >
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit Live Demo for ${project.title}`}
+                        className="flex items-center gap-1.5"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
                         {project.liveUrlLabel || "Live Demo"}
                       </a>
                     </Button>
                   )}
                   {project.secondaryUrl && (
-                    <Button asChild size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                      <a href={project.secondaryUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4" />
+                    <Button
+                      asChild
+                      size="sm"
+                      variant="outline"
+                      className="border-border hover:border-foreground hover:text-foreground text-caption font-medium transition-colors bg-transparent text-secondary-text rounded-[12px] h-9 px-4"
+                    >
+                      <a
+                        href={project.secondaryUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit ${project.secondaryUrlLabel} for ${project.title}`}
+                        className="flex items-center gap-1.5"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
                         {project.secondaryUrlLabel}
                       </a>
                     </Button>
                   )}
                   {project.tertiaryUrl && (
-                    <Button asChild size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                      <a href={project.tertiaryUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4" />
+                    <Button
+                      asChild
+                      size="sm"
+                      variant="outline"
+                      className="border-border hover:border-foreground hover:text-foreground text-caption font-medium transition-colors bg-transparent text-secondary-text rounded-[12px] h-9 px-4"
+                    >
+                      <a
+                        href={project.tertiaryUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit ${project.tertiaryUrlLabel} for ${project.title}`}
+                        className="flex items-center gap-1.5"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
                         {project.tertiaryUrlLabel}
                       </a>
                     </Button>
                   )}
                   {project.githubUrl && (
-                    <Button asChild size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4" />
+                    <Button
+                      asChild
+                      size="sm"
+                      variant="outline"
+                      className="border-border hover:border-foreground hover:text-foreground text-caption font-medium transition-colors bg-transparent text-secondary-text rounded-[12px] h-9 px-4"
+                    >
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit GitHub repository code for ${project.title}`}
+                        className="flex items-center gap-1.5"
+                      >
+                        <Github className="h-3.5 w-3.5" />
                         Code
                       </a>
                     </Button>
                   )}
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

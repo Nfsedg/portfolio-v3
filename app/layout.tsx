@@ -1,23 +1,12 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Work_Sans, Open_Sans } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 
-const workSans = Work_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-work-sans",
-})
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-open-sans",
-})
-
 export const metadata: Metadata = {
-  title: "Edgar Pech's Portfolio",
-  description: "Professional portfolio showcasing of my full-stack development expertise",
+  title: "Edgar Osvaldo Pech García | Software Engineer",
+  description: "Professional software engineer portfolio showcasing full-stack development, AI integrations, and cloud operations expertise.",
 }
 
 export default function RootLayout({
@@ -26,8 +15,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${workSans.variable} ${openSans.variable} antialiased`}>
-      <body className="font-sans">{children}</body>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} antialiased dark`}
+      style={{ colorScheme: "dark" }}
+    >
+      <body className="bg-background text-foreground font-sans">
+        {children}
+      </body>
     </html>
   )
 }

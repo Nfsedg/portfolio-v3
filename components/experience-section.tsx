@@ -1,6 +1,7 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+"use client"
+
 import { Calendar, MapPin } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 export function ExperienceSection() {
   const experiences = [
@@ -43,58 +44,64 @@ export function ExperienceSection() {
   ]
 
   return (
-    <section id="experience" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4 font-[family-name:var(--font-work-sans)]">
-            Professional Experience
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My journey in software development across different companies and technologies
-          </p>
-        </div>
+    <section id="experience" className="py-24 bg-background border-t border-border">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 w-full">
+        <div className="max-w-[1152px] mx-auto">
+          {/* Section Header */}
+          <div className="text-left mb-20">
+            <h2 className="text-h2 font-bold text-foreground tracking-tight mb-4">
+              Professional Experience
+            </h2>
+            <p className="text-body text-secondary-text max-w-2xl">
+              My engineering trajectory across SaaS, enterprise platforms, startups, and academic projects.
+            </p>
+          </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-border"></div>
-
+          {/* Clean Chronological List */}
+          <div className="space-y-16">
             {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className={`relative flex items-center mb-12 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+              <div 
+                key={index} 
+                className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 pt-12 first:pt-0 border-t border-border/50 first:border-t-0"
               >
-                {/* Timeline dot */}
-                <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-3 h-3 bg-accent rounded-full border-2 border-background z-10"></div>
+                {/* Time & Location Column */}
+                <div className="md:col-span-1 space-y-2">
+                  <span className="text-caption font-mono text-accent uppercase tracking-wider block font-semibold">
+                    {exp.period}
+                  </span>
+                  <div className="flex items-center gap-1.5 text-caption text-secondary-text">
+                    <MapPin className="h-3.5 w-3.5" />
+                    <span>{exp.location}</span>
+                  </div>
+                </div>
 
-                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"} ml-12 md:ml-0`}>
-                  <Card className="hover:shadow-md transition-shadow duration-300">
-                    <CardHeader>
-                      <CardTitle className="text-xl font-[family-name:var(--font-work-sans)]">{exp.title}</CardTitle>
-                      <CardDescription className="text-accent font-medium">{exp.company}</CardDescription>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          {exp.period}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin className="h-4 w-4" />
-                          {exp.location}
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4 leading-relaxed">{exp.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech) => (
-                          <Badge key={tech} variant="outline" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+                {/* Content Column */}
+                <div className="md:col-span-3 space-y-4">
+                  <div>
+                    <h3 className="text-h3 font-bold text-foreground tracking-tight">
+                      {exp.title}
+                    </h3>
+                    <span className="text-small font-medium text-secondary-text block mt-1">
+                      {exp.company}
+                    </span>
+                  </div>
+                  
+                  <p className="text-small text-secondary-text leading-relaxed max-w-3xl">
+                    {exp.description}
+                  </p>
+
+                  {/* Technologies Badges */}
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {exp.technologies.map((tech) => (
+                      <Badge
+                        key={tech}
+                        variant="outline"
+                        className="bg-card text-secondary-text text-caption border-border rounded-[12px] px-3 py-1 font-medium font-mono"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}

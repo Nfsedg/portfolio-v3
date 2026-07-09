@@ -1,5 +1,7 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Twitter, Mail, MapPin } from "lucide-react"
+import { Github, Linkedin, Mail, MapPin } from "lucide-react"
 
 export function Footer() {
   const socialLinks = [
@@ -9,43 +11,57 @@ export function Footer() {
   ]
 
   return (
-    <footer id="contact" className="bg-primary text-primary-foreground py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-[family-name:var(--font-work-sans)]">
-            Let's Work Together
-          </h2>
-          <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            I'm always interested in new opportunities and exciting projects. Let's discuss how we can create something
-            amazing together.
-          </p>
+    <footer id="contact" className="bg-background text-foreground py-24 border-t border-border">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 w-full">
+        <div className="max-w-[1152px] mx-auto text-left space-y-12">
 
-          <div className="flex items-center justify-center gap-1 text-primary-foreground/80 mb-8">
-            <MapPin className="h-4 w-4" />
-            <span>Available for remote work worldwide</span>
+          {/* Main Footer Info */}
+          <div className="max-w-2xl space-y-6">
+            <h2 className="text-h2 font-bold tracking-tight text-foreground">
+              Let's Work Together
+            </h2>
+            <p className="text-body text-secondary-text leading-relaxed">
+              I am always interested in discussing new opportunities, full-time roles, or collaborating on high-impact projects.
+              Let's connect and build something exceptional.
+            </p>
+
+            {/* Status Indicator */}
+            <div className="flex items-center gap-2 text-small text-accent font-medium">
+              <MapPin className="h-4 w-4" />
+              <span>Available for remote contracts or full-time worldwide</span>
+            </div>
           </div>
 
-          <div className="flex justify-center gap-4 mb-12">
+          {/* Social Links Row */}
+          <div className="flex flex-wrap gap-4 pt-4 border-t border-border/50">
             {socialLinks.map((social) => (
               <Button
                 key={social.label}
                 variant="outline"
-                size="icon"
-                className="bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                size="sm"
+                className="bg-card border-border text-secondary-text hover:border-foreground hover:text-foreground hover:bg-card/50 transition-colors rounded-[12px] h-10 px-4 focus-visible:ring-2 focus-visible:ring-accent"
                 asChild
               >
-                <a href={social.href} aria-label={social.label}>
-                  <social.icon className="h-5 w-5" />
+                <a
+                  href={social.href}
+                  aria-label={`Open Edgar's ${social.label} profile in a new window`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <social.icon className="h-4 w-4" />
+                  <span className="text-small font-medium">{social.label}</span>
                 </a>
               </Button>
             ))}
           </div>
 
-          <div className="border-t border-primary-foreground/20 pt-8">
-            <p className="text-primary-foreground/60 text-sm">
-              Built with Next.js and Tailwind CSS.
-            </p>
+          {/* Copyright/Meta Info */}
+          <div className="pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-caption text-secondary-text border-t border-border/20 font-mono">
+            <p>{new Date().getFullYear()} Edgar Osvaldo Pech García</p>
+            <p>Built with Next.js, Tailwind CSS & Geist Sans.</p>
           </div>
+
         </div>
       </div>
     </footer>
