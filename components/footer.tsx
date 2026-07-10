@@ -5,9 +5,9 @@ import { Github, Linkedin, Mail, MapPin } from "lucide-react"
 
 export function Footer() {
   const socialLinks = [
-    { icon: Github, href: "https://github.com/Nfsedg", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/nfsedg/", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:edgaropech@hotmail.com", label: "Email" },
+    { icon: Github, href: "https://github.com/edgaropechdev", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/edgaropechdev/", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:contact@edgaropech.dev", label: "Email" },
   ]
 
   return (
